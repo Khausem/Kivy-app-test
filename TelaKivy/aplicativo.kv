@@ -1,0 +1,130 @@
+#:kivy 2.1.0
+GerenciarTelas:
+    TelaMenu:
+        name: 'tela1'
+    TelaGame:
+        name: 'tela2'
+    TelaGameOver:
+        name: 'tela3'
+    TelaImage:
+        name: 'tela4'
+    TelaCarroRico:
+        name: 'tela5'
+    TelaCarroPobre:
+        name: 'tela6'
+
+<TelaMenu>: 
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        Label: 
+            color: (1,0,1,1)
+            text: 'CCO Motors'
+        Button:
+            text: 'Menu'
+            on_release: app.root.current = 'tela2'
+        Button:
+            text: 'Fechar Aplicativo'
+            on_release: app.stop()
+
+<TelaGame>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        Button:
+            text: 'Voltar'
+            on_release: app.root.current = 'tela1'
+        Button:
+            text: 'Catálogo de Motos'
+            on_release: app.root.current = 'tela4'
+        Button:
+            text: 'Catálogo de Carros'
+            on_release: app.root.current = 'tela3'
+<TelaGameOver>:
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        padding: '20dp'
+        spacing: '20dp'
+        Label:
+            color: 1,0,1,1
+            text: 'Carros:'
+            Button:
+                text: 'Voltar'
+                on_release: app.root.current = 'tela2'
+
+        Button:
+            text: 'Carro de Pobre'
+            on_release: app.root.current = 'tela6'
+        Button:
+            text: 'Carro de Rico'
+            on_release: app.root.current = 'tela5'
+<TelaImage>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'CB-Twister-vermelha.png'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        padding: 270
+        spacing: 20
+
+    Button:
+        text: 'Voltar'
+        on_release: app.root.current = 'tela2'
+        pos_hint: {'center_x': 0.5}
+        size_hint: (.5, .05)   
+<TelaCarroRico>:
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'carrorico.png'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        padding: 270
+        spacing: 20
+
+    Button:
+        text: 'Menu de Automóveis'
+        on_release: app.root.current = 'tela3'
+        pos_hint: {'center_x': 0.5}
+        size_hint: (.5, .05)    
+
+<TelaCarroPobre>:
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'carropobre.png'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        padding: 400
+        spacing: 20
+
+    Button:
+        text: 'Menu de Automóveis'
+        on_release: app.root.current = 'tela3'
+        pos_hint: {'center_x': 0.5}
+        size_hint: (.5, .05)        

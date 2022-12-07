@@ -1,0 +1,15 @@
+<Connected>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            text: "Agora você está connectado"
+            font_size: 32
+        Button:
+            text: "Deslogar"
+            font_size: 24
+            on_press: root.disconnect()
+        Button:
+            text: "Entrar no inventário:"
+            font_size: 24
+            on_release: app.root.current = 'tela1'
